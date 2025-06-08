@@ -1,19 +1,20 @@
 <template>
   <div class="screen">
     <div class="desktop-ui">
+      <div class="vignette"/>
       <div class="vhs-overlay" />
       <div class="icons">
-        <div class="icon" e@click="navigate('/about')">
+        <div class="icon" id="iconAbout" @click="navigate('/about')">
           <img src="/assets/icons/about.svg" alt="About" />
           <span>About Me</span>
         </div>
-        <div class="icon" @click="navigate('/projects')">
+        <div class="icon" id="iconProjects" @click="navigate('/projects')">
           <img src="/assets/icons/projects.svg" alt="Projects" />
           <span>Projects</span>
         </div>
-        <div class="icon" @click="navigate('/contact')">
-          <img src="/assets/icons/contact.svg" alt="Contact" />
-          <span>Contact</span>
+        <div class="icon" id="iconWriteups" @click="navigate('/writeups')">
+          <img src="/assets/icons/console.svg" alt="Writeups" />
+          <span>Writeups</span>
         </div>
       </div>
     </div>
@@ -29,36 +30,49 @@ const navigate = (path) => router.push(path)
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .screen {
-  background: radial-gradient(#202020, #000);
+  background-color: #000000;
   min-height: 100vh;
   overflow: hidden;
   font-family: 'Press Start 2P', monospace;
   position: relative;
-  color: #00ff99;
+  color: #1a9f34;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
 .desktop-ui {
-  padding: 2rem;
+  background: radial-gradient(#414141, #1a1a1a);
+  padding: 4rem;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 8rem);
 }
 
-.icons {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
 
 .icon {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 80px;
   cursor: pointer;
   transition: transform 0.2s ease;
+}
+
+
+#iconAbout {
+  top: 22%;
+  left: 35%;
+}
+
+#iconProjects {
+  top: 33%;
+  left: 62%;
+}
+
+#iconWriteups {
+  top: 53%;
+  left: 40%;
 }
 
 .icon:hover {
@@ -73,7 +87,7 @@ const navigate = (path) => router.push(path)
 
 .icon span {
   margin-top: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -84,10 +98,10 @@ const navigate = (path) => router.push(path)
   inset: 0;
   background-image: repeating-linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.02),
-      rgba(255, 255, 255, 0.02) 1px,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5) 2px,
       transparent 1px,
-      transparent 2px
+      transparent 4px
   );
   mix-blend-mode: screen;
   animation: flicker 0.15s infinite;
@@ -98,7 +112,19 @@ const navigate = (path) => router.push(path)
     opacity: 0.1;
   }
   20%, 22%, 55% {
-    opacity: 0.15;
+    opacity: 0.13;
   }
+}
+
+.vignette{
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png);
+  @include fill;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 10000;
+
 }
 </style>
