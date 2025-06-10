@@ -1,30 +1,48 @@
+<script setup>
+const { locale, locales, setLocale } = useI18n()
+const router = useRouter()
+const navigate = (path) => router.push(path)
+
+const items = locales.value.reduce((acc, loc) => {
+  acc[loc.code] = loc.name
+  return acc
+}, {})
+const value = computed({
+  get: () => locale.value,
+  set: (val) => setLocale(val)
+})
+</script>
+
 <template>
   <div class="screen">
     <div class="desktop-ui">
       <div class="vignette"/>
       <div class="vhs-overlay" />
+      <USelect
+        v-model="value"
+        :items="Object.keys(items)"
+        @change="setLocale($event)"
+        class="locale-selector"
+        style="position: absolute; top: 2rem; right: 3rem; z-index: 1000; color: #1a9f34; font-family: 'Press Start 2P', monospace;"
+        :aria-label="$t('home.selectLanguage')"
+      />
       <div class="icons">
         <div class="icon" id="iconAbout" @click="navigate('/about')">
           <img src="/assets/icons/about.svg" alt="About" />
-          <span>About Me</span>
+          <span>{{$t('home.about')}}</span>
         </div>
         <div class="icon" id="iconProjects" @click="navigate('/projects')">
           <img src="/assets/icons/projects.svg" alt="Projects" />
-          <span>Projects</span>
+          <span>{{$t('home.projects')}}</span>
         </div>
         <div class="icon" id="iconWriteups" @click="navigate('/writeups')">
           <img src="/assets/icons/console.svg" alt="Writeups" />
-          <span>Writeups</span>
+          <span>{{$t('home.writeups')}}</span>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<script setup>
-const router = useRouter()
-const navigate = (path) => router.push(path)
-</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -45,7 +63,7 @@ const navigate = (path) => router.push(path)
   background: radial-gradient(#414141, #1a1a1a);
   padding: 4rem;
   width: 100%;
-  height: calc(100vh - 8rem);
+  height: 100vh;
 }
 
 
