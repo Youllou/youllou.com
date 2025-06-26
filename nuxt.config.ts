@@ -9,9 +9,10 @@ export default defineNuxtConfig({
         },
     },
     modules: [
-         '@nuxt/devtools',
+        '@nuxt/devtools',
         '@nuxt/ui',
-        '@nuxtjs/i18n'
+        '@nuxtjs/i18n',
+        '@nuxt/image'
     ],
     css: ['~/public/assets/css/main.css'],
     i18n:  {
@@ -20,5 +21,18 @@ export default defineNuxtConfig({
             { code: 'fr', name: 'Français', file: 'fr.json' }
         ],
         defaultLocale: 'en',
+        compilation:{
+            strictMessage: false
+        }
+
+    },
+    vite:{
+        vue:{
+            script:{
+                propsDestructure: true
+            }
+        }
+    },
+    image: {
     }
 })

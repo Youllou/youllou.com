@@ -1,7 +1,56 @@
 {
+  "common": {
+    "language": "Français",
+    "darkMode": "Mode sombre",
+    "lightMode": "Mode clair",
+    "search": "Rechercher",
+    "searchPlaceholder": "Rechercher dans le site...",
+    "backToTop": "Retour en haut",
+    "loading": "Chargement...",
+    "error": {
+      "title": "Erreur",
+      "message": "Une erreur s'est produite. Veuillez réessayer plus tard."
+    }
+  },
   "home": {
     "about": "À mon propos",
     "projects": "Mes projets",
     "writeups": "Writeups"
+  },
+  "about": {
+    "toc": {
+      "title": "Table des matières",
+      "introduction": "Introduction",
+      "timeline": "Chronologie",
+      "goals": "Objectifs",
+      "projects": "Projets",
+      "rankings": "Classements",
+      "contacts": "Contacts"
+    },
+    "introduction": {
+      "title": "Introduction",
+      "content": "Je m'appelle Youllou, étudiante en génie informatique passionnée par le développement logiciel, la cybersécurité et les technologies émergentes.<br>Curieuse de nature, j’aime explorer des domaines variés, du mobile au web, en passant par l’embarqué et l’IoT. Que ce soit pour créer une interface intuitive, automatiser un processus complexe ou bâtir un système complet, j’aborde chaque projet comme une opportunité d’apprendre et d’innover.<br><br>À travers ce portfolio, je partage les projets qui m’animent, les compétitions qui me challengent (notamment en cybersécurité), ainsi que mes contributions à des initiatives étudiantes et personnelles.<br>Je cherche toujours à allier rigueur technique et créativité, avec une attention particulière à l’expérience utilisateur et à la robustesse des solutions.<br><br>Bonne visite, et n’hésitez pas à me contacter si vous souhaitez collaborer ou simplement échanger !"
+    },
+    "timeline": {
+      "title": "Chronologie",
+      "items": [
+        {
+          "startDate": "2020-01-01",
+          "title": "Started my journey",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "startDate": "2021-06-01",
+          "title": "Joined a new project",
+          "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "startDate": "2022-09-01",
+          "title": "Achieved a major milestone",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      ]
+    }
   }
 }
+
