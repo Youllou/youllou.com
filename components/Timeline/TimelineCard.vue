@@ -6,7 +6,6 @@ const {title, startDate, endDate, description, link} = defineProps<{
   description: string;
   link?: string;
 }>();
-console.log('TimelineCard props:', { title, startDate, endDate, description, link });
 </script>
 
 <template>
