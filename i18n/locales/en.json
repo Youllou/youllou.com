@@ -32,22 +32,38 @@
       "content": "My name is Youllou, I'm a computer engineering student passionate about software development, cybersecurity, and emerging technologies.<br>\nCurious by nature, I enjoy exploring a wide range of fields — from mobile and web development to embedded systems and IoT. Whether it's designing intuitive interfaces, automating complex processes, or building complete systems, I approach each project as an opportunity to learn and innovate.<br><br>\nThrough this portfolio, I share the projects that drive me, the competitions that challenge me (especially in cybersecurity), as well as my contributions to both student and personal initiatives.<br>\nI always strive to combine technical rigor with creativity, paying close attention to user experience and solution robustness.<br><br>\nEnjoy your visit — and feel free to reach out if you’d like to collaborate or simply connect!"
     },
     "timeline": {
-      "title": "Chronologie",
+      "title": "Timeline",
       "items": [
         {
-          "startDate": "2020-01-01",
-          "title": "Started my journey",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "startDate": "2023-05-01",
+          "title": "Member of the executive committee of DCI ETS",
+          "link": "https://dciets.com/",
+          "description": "I am currently a member of the executive committee of DCI ETS, first as treasurer then Chief and this year as VP of Partnership. Through this organization, I thrive to promote cybersecurity and digital skills among students. We organize and participate to events, workshops, and competitions."
         },
         {
-          "startDate": "2021-06-01",
-          "title": "Joined a new project",
-          "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "startDate": "2024-04-01",
+          "endDate": "2025-03-01",
+          "title": "Internship at CFIA",
+          "link": "https://github.com/ai-cfia/fertiscan-frontend",
+          "description": "Worked on Fertiscan a web app used to analyze fertilizer labels leveraging AI"
         },
         {
           "startDate": "2022-09-01",
-          "title": "Achieved a major milestone",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title": "Bachelor of Software Engineering",
+          "description": "I am currently pursuing a Bachelor's degree in Software Engineering at ETS, where I am deepening my knowledge in software development, systems design, and cybersecurity."
+        },
+        {
+          "startDate": "2022-04-01",
+          "endDate": "2022-06-01",
+          "title": "Internship at L'Observatoire de la Nuit",
+          "link": "https://lobservatoiredelanuit.fr/",
+          "description": "Worked on SCAN an interactive webapp used to visualize an array of street lights and lighting strategies on a map."
+        },
+        {
+          "startDate": "2020-09-01",
+          "endDate": "2022-06-31",
+          "title": "DUT in Computer Science",
+          "description": "I completed my DUT in Computer Science at the University of Nantes, where I gained a solid foundation in software development and systems design."
         }
       ]
     }

@@ -6,6 +6,7 @@ const { items } = defineProps<{
     endDate?: string;
     description: string;
     inverted?: boolean;
+    link?: string;
   }[];
 }>()
 </script>
@@ -22,11 +23,12 @@ const { items } = defineProps<{
             :startDate="item.startDate"
             :endDate="item.endDate"
             :description="item.description"
+            :link="item.link"
         />
       </div>
     </div>
     <div class="timeline-line">
-      <div v-for="item in items" class="dot"></div>
+      <div class="timeline-future"/>
     </div>
     <div class="timeline-right">
       <div v-for="(item, index) in items" :key="index" class="timeline-item">
@@ -37,6 +39,7 @@ const { items } = defineProps<{
             :startDate="item.startDate"
             :endDate="item.endDate"
             :description="item.description"
+            :link="item.link"
         />
       </div>
     </div>
@@ -81,8 +84,9 @@ const { items } = defineProps<{
 }
 
 /* decoration on card border */
-.timeline-content:after{
+.timeline-item.timeline-content::after{
   content: '';
+  position: absolute;
   position: absolute;
   top: 0;
   width: 10px;
@@ -91,15 +95,36 @@ const { items } = defineProps<{
   border-radius: 8px;
 }
 
-.timeline-right .timeline-content:after {
+.timeline-right .timeline-item.timeline-content::after {
   left: 0;
 }
-.timeline-left .timeline-content:after {
+.timeline-left .timeline-item.timeline-content::after {
   right: 0;
 }
 
 
+.timeline-item.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 50%; /* Vertically center dot to the card */
+  left: 50%; /* Horizontally align with the center timeline line */
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #be67be;
+  border-radius: 50%;
+  z-index: 3;
+}
 
+
+.timeline-left .timeline-item.timeline-content::before {
+  left: 100%; /* dot appears on the right of the item */
+}
+
+.timeline-right .timeline-item.timeline-content::before {
+  left: 0; /* dot appears on the left of the item */
+  transform: translate(-50%, -50%);
+}
 
 .timeline-line {
   grid-area: line;
@@ -107,13 +132,34 @@ const { items } = defineProps<{
   top: 0;
   left: 50%;
   width: 3px;
-  border-radius: 20px;
   height: 100%;
   background-color: #be67be;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  /* 💡 Only round bottom */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
+
+.timeline-future {
+  position: absolute;
+  top: -40px;
+  width: 3px;
+  height: 40px;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      #be67be,
+      #be67be 4px,
+      transparent 4px,
+      transparent 8px
+  );
+  content: "";
+}
+
 
 .timeline-item:not(:has(.timeline-content)) {
   width: 100%;

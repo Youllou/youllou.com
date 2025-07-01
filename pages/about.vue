@@ -29,12 +29,14 @@
       endDate?: string;
       description: string;
       inverted?: boolean;
+      link?: string;
     } = {
       title: item.title.body.static,
       startDate: item.startDate.body.static,
       endDate : item.endDate?.body.static,
       description: item.description.body.static,
-      inverted: item.inverted?.body.static || false
+      inverted: item.inverted?.body.static || false,
+      link: item.link?.body.static
     }
     reconstructed_items.value.push(reconstructed)
   }

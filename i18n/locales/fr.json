@@ -35,21 +35,38 @@
       "title": "Chronologie",
       "items": [
         {
-          "startDate": "2020-01-01",
-          "title": "Started my journey",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "startDate": "2023-05-01",
+          "title": "Membre du comité exécutif de la DCI ÉTS",
+          "link": "https://dciets.com/",
+          "description": "Je fais actuellement partie du comité exécutif de la DCI ÉTS, d'abord en tant que trésorier, puis Chef, et cette année en tant que VP Partenariats. À travers cette organisation, je m'efforce de promouvoir la cybersécurité et les compétences numériques auprès des étudiants. Nous organisons et participons à des événements, ateliers et compétitions de cybersécurité et d'informatique."
         },
         {
-          "startDate": "2021-06-01",
-          "title": "Joined a new project",
-          "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          "startDate": "2024-04-01",
+          "endDate": "2025-03-01",
+          "title": "Stage à l'ACIA",
+          "link": "https://github.com/ai-cfia/fertiscan-frontend",
+          "description": "J'ai travaillé sur Fertiscan, une application web permettant d'analyser les étiquettes d'engrais grâce à l'IA."
         },
         {
           "startDate": "2022-09-01",
-          "title": "Achieved a major milestone",
-          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title": "Baccalauréat en Génie Logiciel",
+          "description": "Je poursuis actuellement un Baccalauréat en Génie Logiciel à l'ÉTS, où j’approfondis mes connaissances en développement logiciel, conception de systèmes et cybersécurité."
+        },
+        {
+          "startDate": "2022-04-01",
+          "endDate": "2022-06-01",
+          "title": "Stage à L’Observatoire de la Nuit",
+          "link": "https://lobservatoiredelanuit.fr/",
+          "description": "J'ai travaillé sur SCAN, une application web interactive permettant de visualiser un parc lumineux et des stratégies d’éclairage sur un fond de carte."
+        },
+        {
+          "startDate": "2020-09-01",
+          "endDate": "2022-06-31",
+          "title": "DUT en Informatique",
+          "description": "J’ai obtenu mon DUT en Informatique à l’Université de Nantes, où j’ai acquis une solide base en développement logiciel et en conception de systèmes."
         }
       ]
+
     }
   }
 }
