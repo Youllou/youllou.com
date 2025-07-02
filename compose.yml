@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  nuxt-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      NITRO_PORT: 3000
+    restart: unless-stopped
+    networks:
+      - nuxt-net
+    # volumes: # Uncomment this if you want to develop locally with live updates
+    #   - .:/app
+    #   - /app/node_modules # avoid overwriting node_modules on the host
+
+networks:
+  nuxt-net:
+    driver: bridge

@@ -29,7 +29,8 @@ export default defineNuxtConfig({
         '@nuxt/devtools',
         '@nuxt/ui',
         '@nuxtjs/i18n',
-        '@nuxt/image'
+        '@nuxt/image',
+        '@nuxtjs/tailwindcss'
     ],
     css: ['~/public/assets/css/main.css'],
     i18n:  {
