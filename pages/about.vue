@@ -1,12 +1,14 @@
 <script setup lang="ts">
   const { locale, locales, setLocale,t, tm} = useI18n()
 
+  const { data, pending, error } = await useFetch('/api/github')
+  const projects = data.value || []
   let toc = ref([
     { title: t('about.toc.introduction'), link: '#introduction' },
     { title: t('about.toc.timeline'), link: '#timeline' },
-    { title: t('about.toc.goals'), link: '#goals' },
+    //{ title: t('about.toc.goals'), link: '#goals' },
     { title: t('about.toc.projects'), link: '#projects' },
-    { title: t('about.toc.rankings'), link: '#rankings' },
+    //{ title: t('about.toc.rankings'), link: '#rankings' },
     { title: t('about.toc.contacts'), link: '#contacts' },
   ]);
 
@@ -31,15 +33,18 @@
       inverted?: boolean;
       link?: string;
     } = {
-      title: item.title.body.static,
-      startDate: item.startDate.body.static,
-      endDate : item.endDate?.body.static,
-      description: item.description.body.static,
-      inverted: item.inverted?.body.static || false,
-      link: item.link?.body.static
+      title: item.title.b.s,
+      startDate: item.startDate.b.s,
+      endDate : item.endDate?.b.s,
+      description: item.description.b.s,
+      inverted: item.inverted?.b.s || false,
+      link: item.link?.b.s
     }
     reconstructed_items.value.push(reconstructed)
   }
+
+
+
 </script>
 
 <template>
@@ -89,24 +94,34 @@
 
 
 
-          <h1> Other stuff</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquam velit at arcu facilisis, sodales cursus lectus ornare. Maecenas ut diam nec urna lacinia dapibus a sed erat. Vivamus fringilla felis sit amet arcu faucibus, pellentesque volutpat purus semper. Aenean condimentum est vel mauris rutrum sagittis. Phasellus porttitor ligula in gravida venenatis. Duis suscipit, ex sed consequat suscipit, sem arcu consectetur risus, nec vulputate nibh ante vitae nulla. Cras vel turpis tincidunt, aliquam mi at, tincidunt augue.
-          </p>
-          <p>
-            Maecenas euismod luctus lorem volutpat condimentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris sed venenatis mauris. Aliquam ac massa sapien. In sed est sit amet odio dignissim luctus quis quis felis. Morbi et erat lacinia sem facilisis molestie. Nullam auctor, ipsum non blandit auctor, ante turpis feugiat velit, ut blandit urna mauris vel nunc. Aenean tempus fringilla eros vel blandit. Morbi ullamcorper lectus at augue tincidunt, ac rhoncus nisl aliquam. In scelerisque urna elit, at hendrerit velit sodales euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus sem risus, eget molestie mi eleifend eget. Nulla facilisi. Maecenas ullamcorper ante felis, a pulvinar magna facilisis et.
-          </p>
-          <p>
-            Duis tortor felis, condimentum quis quam et, pellentesque accumsan tortor. Cras ut tristique quam. Proin tristique, dui eu porta rhoncus, turpis ante cursus enim, id bibendum arcu libero quis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae ipsum sed urna congue bibendum. Quisque vel enim porta, hendrerit massa ac, tincidunt urna. Nunc sed commodo massa. Vivamus sit amet dictum ex, nec dictum nunc. Pellentesque cursus lectus lectus, non eleifend felis tempor at. Cras non nunc sed odio varius ultricies. Donec feugiat ultricies interdum. Duis venenatis ante faucibus, iaculis nunc non, faucibus lacus. Aliquam semper, justo sit amet scelerisque finibus, orci ex placerat arcu, vitae sagittis nunc diam id ipsum.
-          </p>
-          <p>
-            Etiam in eros arcu. Quisque auctor nunc et ex rutrum bibendum. Sed eget faucibus purus. Etiam faucibus volutpat erat ut sodales. Curabitur ullamcorper enim sit amet facilisis euismod. Proin ornare, velit id iaculis fermentum, magna tellus tincidunt sem, ullamcorper sodales elit erat id velit. Proin sollicitudin a tellus at faucibus. Maecenas tempus magna at leo fringilla ullamcorper. Duis consequat lacus elit, ut efficitur nibh interdum ac. Proin eros elit, fringilla id elit quis, pellentesque dignissim nulla.
-          </p>
-          <p>
-            Donec accumsan, tellus eget tincidunt condimentum, libero turpis finibus nibh, quis tincidunt purus urna sed ex. Nam ante nibh, lobortis sit amet nunc nec, viverra tincidunt eros. Ut porta nibh sed enim porta, vitae varius nisi pellentesque. In a fringilla dolor, at pretium nibh. Duis euismod sit amet turpis aliquam elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla tempor, justo vitae sollicitudin convallis, justo libero tempus felis, et ultrices mauris ipsum at elit. Donec vel elit ipsum. Nullam accumsan lacinia mi id euismod. Duis ut lorem sit amet quam euismod sollicitudin et in nibh. Vivamus lacinia euismod urna, a fringilla nulla rhoncus imperdiet. Proin hendrerit cursus convallis. Fusce pellentesque placerat purus vitae rhoncus.
-          </p>
+          <h1 id="projects">{{$t('about.projects.title')}}</h1>
+          <p v-html="$t('about.projects.description')"></p>
+          <div class="projects-list">
+            <div v-for="project in projects" :key="project.name" class="project-item">
+              <h2>{{ project.name }}</h2>
+              <p>{{ project.description }}</p>
+              <a :href="project.url" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+            </div>
+          </div>
         </div>
       </div>
+
+
+      <div class="contacts">
+        <h1 id="contacts">{{$t('about.contacts.title')}}</h1>
+        <p v-html="$t('about.contacts.description')"></p>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/jules-barbier-bordere/" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/linkedin.svg" alt="linkedin" width="32"> </a></li>
+          <li><a href="https://github.com/youllou" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/github.svg" alt="github" width="32"></a></li>
+          <li><a href="https://instagram.com/youl__lou" target="_blank" rel="noopener noreferrer"><img src="/assets/icons/instagram.svg" width="32"></a></li>
+          <li><a href="mailto://contact@youllou.com"><img src="/assets/icons/mail.svg" width="32"></a></li>
+        </ul>
+      </div>
+
+
+
+
+
       <div class="desk-toc">
         <h2>{{$t('about.toc.title')}}</h2>
         <ul class="toc">
@@ -154,6 +169,8 @@
     padding: 5%;
     display: grid;
     grid-template-columns: 6fr 1fr;
+    grid-template-areas: "content toc"
+                         "contact contact";
     gap: 2rem;
 
   }
@@ -167,7 +184,9 @@
   }
 
   .content {
+    grid-area: content;
     color: #cccccc;
+    padding-right: 2%;
   }
 
 
@@ -191,6 +210,7 @@
 
   .desk-toc{
     position: fixed;
+    grid-area: toc;
     top: calc(5% + 2rem);
     left: 82%;
   }
@@ -226,6 +246,32 @@
 
 
 
+  .project-item{
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .project-link{
+    color: #be67be;
+    font-size: 0.8rem;
+    text-decoration: underline;
+  }
 
 
+  .contacts{
+    grid-area: contact;
+    color: #cccccc;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .contacts ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
 </style>

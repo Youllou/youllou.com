@@ -24,7 +24,6 @@ const value = computed({
         @change="setLocale($event)"
         class="locale-selector"
         style="position: absolute; top: 2rem; right: 3rem; z-index: 1000; color: #1a9f34; font-family: 'Press Start 2P', monospace;"
-        :aria-label="$t('home.selectLanguage')"
       />
       <div class="icons">
         <div class="icon" id="iconAbout" @click="navigate('/about')">

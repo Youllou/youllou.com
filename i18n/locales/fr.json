@@ -67,6 +67,14 @@
         }
       ]
 
+    },
+    "projects": {
+      "title": "Projets",
+      "description": "Voici quelques-uns de mes projets récents, qui reflètent ma passion pour le développement logiciel et la cybersécurité. N'hésitez pas à explorer et à me contacter si vous souhaitez en savoir plus ou collaborer !"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "description": "Vous pouvez me contacter par mail ou via linkedIn. Je suis toujours ouverte à de nouvelles opportunités et collaborations."
     }
   }
 }

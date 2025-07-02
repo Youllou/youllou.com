@@ -66,6 +66,14 @@
           "description": "I completed my DUT in Computer Science at the University of Nantes, where I gained a solid foundation in software development and systems design."
         }
       ]
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Here are some of the projects I have worked on, showcasing my skills in software development, cybersecurity, and more. Each project reflects my passion for technology and my commitment to creating impactful solutions.",
+    },
+    "contacts": {
+      "title": "Contacts",
+      "description": "Feel free to reach out to me via email or connect with me on LinkedIn. I am always open to new opportunities and collaborations.",
     }
   }
 }
