@@ -33,12 +33,12 @@
       inverted?: boolean;
       link?: string;
     } = {
-      title: item.title.b.s,
-      startDate: item.startDate.b.s,
-      endDate : item.endDate?.b.s,
-      description: item.description.b.s,
-      inverted: item.inverted?.b.s || false,
-      link: item.link?.b.s
+      title: item.title.b?.s || item.title.body.static,
+      startDate: item.startDate.b?.s || item.startDate.body.static,
+      endDate : item.endDate?.b?.s || item.endDate?.body.static,
+      description: item.description.b?.s || item.description.body.static,
+      inverted: item.inverted?.b?.s || item.inverted?.body.static || false,
+      link: item.link?.b?.s || item.link?.body.static
     }
     reconstructed_items.value.push(reconstructed)
   }
@@ -84,7 +84,6 @@
               />
             </div>
           </div>
-
 
           <h1 id="timeline">{{$t('about.timeline.title')}}</h1>
           <Timeline
@@ -200,6 +199,7 @@
   }
 
 
+
   .toc{
     text-decoration: underline;
     text-decoration-color: #be67be;
@@ -229,10 +229,19 @@
   }
 
   @media (max-width: 768px) {
-    .outer-container {
-      grid-template-columns: 1fr;
+    #introduction {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
     }
 
+    .outer-container {
+      grid-template-columns: 1fr;
+      padding:0 0 5% 0;
+    }
+    .inner-border {
+      padding-right: 7%;
+    }
     .desk-toc {
       display: none;
       position: static;
@@ -241,6 +250,10 @@
 
     .mobile-toc {
       display: block;
+    }
+
+    .contacts{
+      width: calc(100% - 2rem);
     }
   }
 
@@ -264,7 +277,6 @@
     grid-area: contact;
     color: #cccccc;
     padding: 2rem;
-    border-radius: 8px;
   }
 
   .contacts ul {
