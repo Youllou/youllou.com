@@ -3,7 +3,7 @@ import * as locales from '@nuxt/ui/locale'
 
 const { locale } = useI18n()
 </script>
-
+/// ALLO - VES
 
 <template>
   <UApp :locale="locales[locale]">
