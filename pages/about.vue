@@ -24,6 +24,13 @@
 
   const tmd_items = tm('about.timeline.items')
   let reconstructed_items = ref([])
+  let all_left = false
+  if(import.meta.client){
+    if( window.screen.width <= 768 ) {
+      all_left = true
+    }
+  }
+
   for (const item of tmd_items) {
     let reconstructed: {
       title: string;
@@ -88,6 +95,7 @@
           <h1 id="timeline">{{$t('about.timeline.title')}}</h1>
           <Timeline
             :items="reconstructed_items"
+            :all-left="all_left"
             class="timeline"
           />
 
@@ -241,6 +249,7 @@
     }
     .inner-border {
       padding-right: 7%;
+      width: 100vw !important;
     }
     .desk-toc {
       display: none;

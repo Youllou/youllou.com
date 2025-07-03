@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { items } = defineProps<{
+  allLeft: boolean;
   items: {
     title: string;
     startDate: string;
@@ -13,11 +14,11 @@ const { items } = defineProps<{
 
 <template>
 
-  <div class="timeline-container">
+  <div class="timeline-container" :class="{ 'all-left': allLeft }">
     <div class="timeline-left">
       <div v-for="(item, index) in items" :key="index" class="timeline-item">
         <TimelineCard
-            v-if="index%2==0 || (index%2==1 && item.inverted)"
+            v-if="index%2==0 || (index%2==1 && item.inverted) || allLeft"
             class="timeline-content"
             :title="item.title"
             :startDate="item.startDate"
@@ -30,7 +31,7 @@ const { items } = defineProps<{
     <div class="timeline-line">
       <div class="timeline-future"/>
     </div>
-    <div class="timeline-right">
+    <div class="timeline-right" v-if="!allLeft">
       <div v-for="(item, index) in items" :key="index" class="timeline-item">
         <TimelineCard
             v-if="index%2==1 || (index%2==0 && item.inverted)"
@@ -58,6 +59,9 @@ const { items } = defineProps<{
   grid-template-areas:
     "left line right";
 }
+
+
+
 .timeline-left,
 .timeline-right {
   display: flex;
@@ -86,7 +90,6 @@ const { items } = defineProps<{
 /* decoration on card border */
 .timeline-item.timeline-content::after{
   content: '';
-  position: absolute;
   position: absolute;
   top: 0;
   width: 10px;
@@ -175,4 +178,16 @@ const { items } = defineProps<{
   border-radius: 50%;
   transform: translateX(-50%);
 }
+
+@media (max-width: 768px) {
+  .timeline-container {
+    grid-template-columns: 12fr 1fr;
+    grid-template-areas:
+      "left line";
+  }
+
+
+}
+
+
 </style>
