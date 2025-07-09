@@ -30,8 +30,20 @@ export default defineNuxtConfig({
         '@nuxt/ui',
         '@nuxtjs/i18n',
         '@nuxt/image',
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
+        '@nuxtjs/seo'
     ],
+    seo: {
+        // Your base URL (important!)
+        siteUrl: 'https://youllou.com',
+
+        // You can define dynamic routes too, but start simple:
+        sitemap: {
+            enabled: true,
+            include: ['/'], // will auto-generate others
+            i18n: true, // ✅ Enable multi-locale support
+        }
+    },
     css: ['~/public/assets/css/main.css'],
     i18n:  {
         locales: [
