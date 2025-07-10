@@ -25,7 +25,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: 'https://youllou.com/assets/images/logo.svg'
+      content: 'https://youllou.com/assets/images/logo.png'
     },
     {
       property: 'og:url',
@@ -50,7 +50,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: 'https://youllou.com/assets/images/logo.svg'
+      content: 'https://youllou.com/assets/images/logo.png'
     }
   ]
 })
