@@ -5,13 +5,6 @@ export default defineNuxtConfig({
         githubToken: process.env.GITHUB_TOKEN, // Default fallback for SSR
         public: {}        // Never put the token here!
     },
-    devtools: {
-      enabled: true,
-
-      timeline: {
-        enabled: true
-      }
-    },
     routeRules: {
         "/projects": {
             // Temporary redirect using a 307 status code
@@ -63,6 +56,4 @@ export default defineNuxtConfig({
             }
         }
     },
-    image: {
-    }
 })

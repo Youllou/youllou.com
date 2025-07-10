@@ -5,6 +5,7 @@ const { locale } = useI18n()
 
 useHead({
   title: "Youllou's Portfolio 🚀",
+  titleTemplate: '%s',
   meta: [
     {
       name: 'description',
@@ -35,23 +36,7 @@ useHead({
       property: 'og:type',
       content: 'website'
     },
-    // Twitter Card
-    {
-      name: 'twitter:card',
-      content: 'summary_large_image'
-    },
-    {
-      name: 'twitter:title',
-      content: "Youllou's Portfolio 🚀"
-    },
-    {
-      name: 'twitter:description',
-      content: 'Check out my projects and CTF writeups!'
-    },
-    {
-      name: 'twitter:image',
-      content: 'https://youllou.com/assets/images/logo.png'
-    }
+
   ]
 })
 </script>
