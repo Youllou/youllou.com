@@ -5,6 +5,12 @@ export default defineNuxtConfig({
         githubToken: process.env.GITHUB_TOKEN, // Default fallback for SSR
         public: {}        // Never put the token here!
     },
+    site : {
+        name: 'Youllou\'s Portfolio 🚀',
+        url: 'https://youllou.com',
+        description: 'Hey there! I am Youllou, a computer science student passionate about technology and cybersecurity. Explore my projects, CTFs, and creative works!',
+        indexable: true,
+    },
     routeRules: {
         "/projects": {
             // Temporary redirect using a 307 status code
@@ -26,17 +32,6 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         '@nuxtjs/seo'
     ],
-    seo: {
-        // Your base URL (important!)
-        siteUrl: 'https://youllou.com',
-
-        // You can define dynamic routes too, but start simple:
-        sitemap: {
-            enabled: true,
-            include: ['/'], // will auto-generate others
-            i18n: true, // ✅ Enable multi-locale support
-        }
-    },
     css: ['~/public/assets/css/main.css'],
     i18n:  {
         locales: [

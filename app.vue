@@ -9,7 +9,23 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Personal portfolio showcasing projects, writeups, and creative works by a passionate CS student.'
+      content: 'Hey there! I am Youllou, a computer science student passionate about technology and cybersecurity. Explore my projects, CTFs, and creative works!'
+    },
+    {
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    },
+    {
+      name: 'theme-color',
+      content: '#1a9f34'
+    },
+    {
+      name: 'author',
+      content: 'Youllou'
+    },
+    {
+      name: 'keywords',
+      content: 'Youllou, portfolio, computer science, cybersecurity, projects, CTFs, creative works'
     },
     {
       name: 'robots',
@@ -22,16 +38,13 @@ useHead({
     },
     {
       property: 'og:description',
-      content: 'Explore my projects, CTFs, and creative works as a computer science student.'
+      content: 'Hey there! I am Youllou, a computer science student passionate about technology and cybersecurity. Explore my projects, CTFs, and creative works!'
     },
     {
       property: 'og:image',
       content: 'https://youllou.com/assets/images/logo.png'
     },
-    {
-      property: 'og:url',
-      content: 'https://youllou.com'
-    },
+
     {
       property: 'og:type',
       content: 'website'
