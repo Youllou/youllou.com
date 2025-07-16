@@ -26,7 +26,7 @@ const value = computed({
         style="position: absolute; top: 2rem; right: 3rem; z-index: 1000; color: #1a9f34; font-family: 'Press Start 2P', monospace;"
       />
       <div class="icons">
-        <div class="icon" id="iconAbout" @click="navigate('/about')">
+        <div class="icon" id="iconAbout" @click="navigate('./about')">
           <img src="/assets/icons/about.svg" alt="About" />
           <span>{{$t('home.about')}}</span>
         </div>
@@ -34,7 +34,7 @@ const value = computed({
           <img src="/assets/icons/projects.svg" alt="Projects" />
           <span>{{$t('home.projects')}}</span>
         </div>
-        <div class="icon" id="iconWriteups" @click="navigate('/writeups')">
+        <div class="icon" id="iconWriteups" @click="navigate('./writeups')">
           <img src="/assets/icons/console.svg" alt="Writeups" />
           <span>{{$t('home.writeups')}}</span>
         </div>
