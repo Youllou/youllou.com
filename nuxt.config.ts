@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     ],
     css: ['~/public/assets/css/main.css'],
     i18n:  {
+        strategy: 'prefix_and_default',
         locales: [
             { code: 'en', name: 'English', file: 'en.json' },
             { code: 'fr', name: 'Français', file: 'fr.json' }
