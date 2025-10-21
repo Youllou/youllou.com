@@ -1,17 +1,34 @@
 <script setup lang="ts">
-const posts = []; // Replace with your posts array when available
+
+import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
+const query: QueryBuilderParams = { path: '/writeups', where: [{ meta: 'folder' }],
+sort: [{ date: -1 }] }
+const { data: files } = await useAsyncData('writeups', () =>
+    queryContent('writeups').only(['title', 'path', 'dir', 'slug']).find()
+)
 </script>
+
+
 <template>
   <div class="writeups-page">
     <h1>Writeups</h1>
-    <div v-if="posts.length === 0" class="no-posts">
+    <div v-if="files?.length === 0" class="no-posts">
       <p>Writeups are on their way...<span class="cursor">|</span></p>
     </div>
-    <ul v-else class="posts-list">
-      <li v-for="(post, index) in posts" :key="index">
-        <a :href="post.link">{{ post.title }}</a>
-      </li>
-    </ul>
+    <div v-else class="post-wrapper">
+      <ContentList :query="query"  v-slot="{ list }"  >
+        <div v-for="folder in list" :key="folder._path" class="folder-section">
+          <h2>{{ folder.title }}</h2>
+          <ContentList :folder="folder" v-slot="{ list: articles }">
+            <ul class="posts-list">
+              <li v-for="article in (articles || []).filter(a => a?.meta !== 'folder')" :key="article._path">
+                <NuxtLink :to="article._path">{{ article.title }}</NuxtLink>
+              </li>
+            </ul>
+          </ContentList>
+        </div>
+      </ContentList>
+    </div>
   </div>
 </template>
 
@@ -37,9 +54,14 @@ h1 {
   text-align: center;
 }
 
+.post-wrapper {
+  width: 80%;
+}
+
+
 .posts-list {
-  list-style: none;
-  padding: 0;
+  list-style-type: "|-- " ;
+  padding-left: 4rem;
 }
 
 .posts-list li {
@@ -69,4 +91,6 @@ h1 {
     opacity: 0;
   }
 }
+
+
 </style>

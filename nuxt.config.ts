@@ -30,7 +30,8 @@ export default defineNuxtConfig({
         '@nuxtjs/i18n',
         '@nuxt/image',
         '@nuxtjs/tailwindcss',
-        '@nuxtjs/seo'
+        '@nuxtjs/seo',
+        '@nuxt/content'
     ],
     css: ['~/public/assets/css/main.css'],
     i18n:  {
@@ -44,6 +45,8 @@ export default defineNuxtConfig({
             strictMessage: false
         }
 
+    },
+    content: {
     },
     vite:{
         vue:{
