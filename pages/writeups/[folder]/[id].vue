@@ -4,17 +4,45 @@ const route = useRoute();
 const { data: article } = await useAsyncData("article", () =>
     queryContent(`/writeups/${route.params.folder}/${route.params.id}`).findOne()
 );
-console.log(article.value);
-console.log(`/writeups/${route.params.folder}/${route.params.id}`)
-
 </script>
 
 <template>
-  <div class="w-full pb-10">
-    <div
-        class="max-w-7xl bg-white rounded-3xl flex flex-col items-center shadow-md -mt-20 mx-auto p-10 gap-10"
-    >
-      <ContentRenderer :value="article" class="prose" />
-    </div>
+  <div class="w-full pb-10 document-wrapper">
+    <ContentRenderer :value="article" class="prose" />
   </div>
 </template>
+<style>
+
+.document-wrapper {
+  background-color: #000000;
+  color: #cccccc;
+  min-height: 100vh;
+  font-family: 'Press Start 2P',serif;
+  font-size: 1rem;
+  padding: 1.5rem;
+}
+
+.subtitle {
+  color: #999999;
+  font-size: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem !important;
+  font-weight: bold;
+  color: #a020f0;
+  text-decoration: underline;
+  text-decoration-color: #a020f0;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #a020f0;
+  text-decoration: underline;
+  text-decoration-color: #a020f0;
+}
+
+</style>

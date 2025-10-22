@@ -21,7 +21,7 @@ const { data: files } = await useAsyncData('writeups', () =>
           <h2>{{ folder.title }}</h2>
           <ContentList :folder="folder" v-slot="{ list: articles }">
             <ul class="posts-list">
-              <li v-for="article in (articles || []).filter(a => a?.meta !== 'folder')" :key="article._path">
+              <li v-for="article in (articles || []).filter(a => a?.meta !== 'folder').filter(a => a?._path.includes(folder?._path))" :key="article._path">
                 <NuxtLink :to="article._path">{{ article.title }}</NuxtLink>
               </li>
             </ul>
