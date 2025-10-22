@@ -35,4 +35,25 @@ So I had an IP address now, lets see if there is a web server on it.
 - Wait, it's just the same interface shown on the screen...
 <br>
 <br>
-Lets read the challenge for real... so there is a file located at '/opt/'
+Lets read the challenge for real... so there is a file located at '/opt/share/logs/ghostnet.log'
+
+Alright lets try to simply reach this webpage `https://172.16.10.10/opt/share/logs/ghostnet.log`
+<br>
+<br>
+Doing this redirects us to a web manager login page.
+
+After some reading about the exact device the [AXC F 2152](https://product-download.phoenixcontact.com/10717664?response-content-disposition=inline;%20filename%3D%22um_en_axc_f_x152_observe_hw_version_107708_en_14.pdf%22&Expires=1761173026&Signature=zGV97gDL7i-De2CPD4dA~eeOvHJnfkiipPc93DIifBIzP~z0iB-rZFVMvFRaUpMJgJ4szKn3yedlGRVVd9x08PoyrvVsv8Xx90h3awjwEVOfmcXfCSxnpTwWLlA~wlWcvlPayGEeUCtOssuE9na9Cp1TyirXTemXEeNz9PKHEZNQaQUianHB4~~ZQlPqCAbkYCl-c2bDfGmPO6pT75eEyjyn2100eVsw7sRl6ZPik0Y10Isuz3RYX90vQBQMceJPmawoWTGjgTWPNAfeW05VbslL5mNBT6te2mW~wkXJ7BbV9L0JkdTLhWhSl0Msl5aGdio4Tqod-d5KD6OzQ1Elyg__&Key-Pair-Id=K1I2N54A7B0GD), I see that the password for the Web Based Manager (wbm) is the same as the one for ssh.
+
+Wait... ssh ?
+```sh
+󰣇 ~ ❯ ssh 172.16.10.10                                                                                                     15:48
+youllou@172.16.10.10's password:
+
+```
+OMG !
+
+Well now whats the user name and the password
+
+\*reading intensify\*
+
+wait did read default password ![2152_defaultpasswd](/writeups/hackfest_2025/2152_defaultpasswd.png)

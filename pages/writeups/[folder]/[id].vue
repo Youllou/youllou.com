@@ -24,7 +24,7 @@ const { data: article } = await useAsyncData("article", () =>
 
 .subtitle {
   color: #999999;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   margin-bottom: 1rem;
 }
 
@@ -39,8 +39,18 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-top: 2rem;
   color: #a020f0;
+  text-decoration: underline;
+  text-decoration-color: #a020f0;
+}
+
+.language-sh code{
+  font-family: "FiraCode Nerd Font", monospace;
+}
+
+p a{
   text-decoration: underline;
   text-decoration-color: #a020f0;
 }
