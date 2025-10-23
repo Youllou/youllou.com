@@ -57,4 +57,4 @@ Well now whats the user name and the password
 \*reading intensify\*
 
 wait did read default password ![2152_defaultpasswd](/writeups/hackfest_2025/2152_defaultpasswd.png)
-a
+aa
