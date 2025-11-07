@@ -20,6 +20,8 @@ const { data: article } = await useAsyncData("article", () =>
   font-family: 'Press Start 2P',serif;
   font-size: 1rem;
   padding: 1.5rem;
+  overflow: hidden;
+  padding-bottom: 5%;
 }
 
 .subtitle {
@@ -45,9 +47,16 @@ h2 {
   text-decoration: underline;
   text-decoration-color: #a020f0;
 }
+@font-face {
+  font-family: 'Proto Nerd Font';
+  src: url('/assets/fonts/0xProtoNerdFont-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 .language-sh code{
-  font-family: "FiraCode Nerd Font", monospace;
+  font-family: "Proto Nerd Font", monospace;
 }
 
 p a{
@@ -55,4 +64,17 @@ p a{
   text-decoration-color: #a020f0;
 }
 
+img{
+  width: 70%;
+}
+
+ul {
+  list-style-type: "- " ;
+  padding-left: 2rem;
+}
+
+useparator{
+  margin: 2rem 0;
+  border-top: 2px solid #a020f0;
+}
 </style>
