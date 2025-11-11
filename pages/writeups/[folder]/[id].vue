@@ -77,4 +77,12 @@ useparator{
   margin: 2rem 0;
   border-top: 2px solid #a020f0;
 }
+
+@media only screen and (min-width: 768px) {
+
+  .document-wrapper{
+    padding: 5% 15%;
+  }
+
+} 
 </style>
