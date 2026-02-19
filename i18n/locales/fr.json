@@ -29,7 +29,7 @@
     },
     "introduction": {
       "title": "Introduction",
-      "content": "Je m'appelle Youllou, étudiante en génie informatique passionnée par le développement logiciel, la cybersécurité et les technologies émergentes.<br>Curieuse de nature, j’aime explorer des domaines variés, du mobile au web, en passant par l’embarqué et l’IoT. Que ce soit pour créer une interface intuitive, automatiser un processus complexe ou bâtir un système complet, j’aborde chaque projet comme une opportunité d’apprendre et d’innover.<br><br>À travers ce portfolio, je partage les projets qui m’animent, les compétitions qui me challengent (notamment en cybersécurité), ainsi que mes contributions à des initiatives étudiantes et personnelles.<br>Je cherche toujours à allier rigueur technique et créativité, avec une attention particulière à l’expérience utilisateur et à la robustesse des solutions.<br><br>Bonne visite, et n’hésitez pas à me contacter si vous souhaitez collaborer ou simplement échanger !"
+      "content": "Je m'appelle Youllou, étudiante en génie informatique passionnée par le développement logiciel, la cybersécurité et les technologies émergentes.<br>Curieuse de nature, j'aime explorer des domaines variés, du mobile au web, en passant par l'embarqué et l'IoT. Que ce soit pour créer une interface intuitive, automatiser un processus complexe ou bâtir un système complet, j'aborde chaque projet comme une opportunité d'apprendre et d'innover.<br><br>À travers ce portfolio, je partage les projets qui m'animent, les compétitions qui me challengent (notamment en cybersécurité), ainsi que mes contributions à des initiatives étudiantes et personnelles.<br>Je cherche toujours à allier rigueur technique et créativité, avec une attention particulière à l'expérience utilisateur et à la robustesse des solutions.<br><br>Bonne visite, et n'hésitez pas à me contacter si vous souhaitez collaborer ou simplement échanger !"
     },
     "timeline": {
       "title": "Chronologie",
@@ -50,23 +50,22 @@
         {
           "startDate": "2022-09-01",
           "title": "Baccalauréat en Génie Logiciel",
-          "description": "Je poursuis actuellement un Baccalauréat en Génie Logiciel à l'ÉTS, où j’approfondis mes connaissances en développement logiciel, conception de systèmes et cybersécurité."
+          "description": "Je poursuis actuellement un Baccalauréat en Génie Logiciel à l'ÉTS, où j'approfondis mes connaissances en développement logiciel, conception de systèmes et cybersécurité."
         },
         {
           "startDate": "2022-04-01",
           "endDate": "2022-06-01",
-          "title": "Stage à L’Observatoire de la Nuit",
+          "title": "Stage à L'Observatoire de la Nuit",
           "link": "https://lobservatoiredelanuit.fr/",
-          "description": "J'ai travaillé sur SCAN, une application web interactive permettant de visualiser un parc lumineux et des stratégies d’éclairage sur un fond de carte."
+          "description": "J'ai travaillé sur SCAN, une application web interactive permettant de visualiser un parc lumineux et des stratégies d'éclairage sur un fond de carte."
         },
         {
           "startDate": "2020-09-01",
-          "endDate": "2022-06-31",
+          "endDate": "2022-06-30",
           "title": "DUT en Informatique",
-          "description": "J’ai obtenu mon DUT en Informatique à l’Université de Nantes, où j’ai acquis une solide base en développement logiciel et en conception de systèmes."
+          "description": "J'ai obtenu mon DUT en Informatique à l'Université de Nantes, où j'ai acquis une solide base en développement logiciel et en conception de systèmes."
         }
       ]
-
     },
     "projects": {
       "title": "Projets",
@@ -74,8 +73,7 @@
     },
     "contacts": {
       "title": "Contacts",
-      "description": "Vous pouvez me contacter par mail ou via linkedIn. Je suis toujours ouverte à de nouvelles opportunités et collaborations."
+      "description": "Vous pouvez me contacter par mail ou via LinkedIn. Je suis toujours ouverte à de nouvelles opportunités et collaborations."
     }
   }
 }
-

@@ -2,5 +2,5 @@
 import WriteupsExplorer from "@/components/PagesContent/WriteupsExplorer.vue";
 </script>
 <template>
-  <WriteupsExplorer mode="navigate" />
+  <WriteupsExplorer mode="inline" />
 </template>

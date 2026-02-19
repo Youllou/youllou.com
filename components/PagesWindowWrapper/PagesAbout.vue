@@ -2,5 +2,5 @@
 import AboutContent from "@/components/PagesContent/AboutContent.vue";
 </script>
 <template>
-  <AboutContent mode="page" />
+  <AboutContent mode="window" />
 </template>

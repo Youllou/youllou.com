@@ -1,148 +1,171 @@
-<script setup>
-const { locale, locales, setLocale } = useI18n()
-const router = useRouter()
-const navigate = (path) => router.push(path)
+<script setup lang="ts">
+import { useDesktop, type DesktopApp } from '@/composables/useDesktop'
+import PagesAbout from "@/components/PagesWindowWrapper/PagesAbout.vue";
+import PagesProjects from "@/components/PagesWindowWrapper/PagesProjects.vue";
+import PagesWriteups from "@/components/PagesWindowWrapper/PagesWriteups.vue";
 
-const items = locales.value.reduce((acc, loc) => {
-  acc[loc.code] = loc.name
-  return acc
-}, {})
-const value = computed({
-  get: () => locale.value,
-  set: (val) => setLocale(val)
-})
-const localePath = useLocalePath()
+const { windows, openWindow } = useDesktop()
+
+// ── Define your apps here — add more as needed ───────────────────
+const apps: DesktopApp[] = [
+  {
+    id: 'about',
+    label: 'About Me',
+    icon: '👤',
+    component: 'PagesAbout',
+  },
+  {
+    id: 'projects',
+    label: 'Projects',
+    icon: '🗂️',
+    component: 'PagesProjects',
+  },
+  {
+    id: 'writeups',
+    label: 'Writeups',
+    icon: '📝',
+    component: 'PagesWriteups',
+  },
+]
+
+// Default grid positions for icons (column of icons on the left)
+function defaultPos(index: number) {
+  return { x: 20, y: 20 + index * 110 }
+}
 </script>
 
 <template>
-  <div class="screen">
-    <div class="desktop-ui">
-      <div class="vignette"/>
-      <div class="vhs-overlay" />
-      <USelect
-        v-model="value"
-        :items="Object.keys(items)"
-        @change="setLocale($event)"
-        class="locale-selector"
-        style="position: absolute; top: 2rem; right: 3rem; z-index: 1000; color: #1a9f34; font-family: 'Press Start 2P', monospace;"
-      />
-      <div class="icons">
-        <NuxtLink class="icon" id="iconAbout" :to="localePath('about')">
-          <img src="/assets/icons/about.svg" alt="About" />
-          <span>{{$t('home.about')}}</span>
-        </NuxtLink>
-        <NuxtLink class="icon" id="iconProjects" to="/projects">
-          <img src="/assets/icons/projects.svg" alt="Projects" />
-          <span>{{$t('home.projects')}}</span>
-        </NuxtLink>
-        <NuxtLink class="icon" id="iconWriteups" :to="localePath('writeups')">
-          <img src="/assets/icons/console.svg" alt="Writeups" />
-          <span>{{$t('home.writeups')}}</span>
-        </NuxtLink>
+  <div class="virtual-desktop">
+    <!-- Desktop background -->
+    <div class="desktop-bg" />
+
+    <!-- Desktop Icons -->
+    <DesktopIcon
+        v-for="(app, i) in apps"
+        :key="app.id"
+        :app="app"
+        :default-position="defaultPos(i)"
+        @open="openWindow"
+    />
+
+    <!-- Windows -->
+    <DesktopWindow
+        v-for="win in windows"
+        :key="win.id"
+        :win="win"
+    >
+      <PagesAbout     v-if="win.appId === 'about'" />
+      <PagesProjects  v-else-if="win.appId === 'projects'" />
+      <PagesWriteups  v-else-if="win.appId === 'writeups'" />
+      <!-- Add more pages here as you build them -->
+    </DesktopWindow>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+      <div class="taskbar-apps">
+        <button
+            v-for="win in windows"
+            :key="win.id"
+            class="taskbar-item"
+            :class="{ minimized: win.minimized }"
+            @click="win.minimized = !win.minimized"
+        >
+          <span class="taskbar-icon">{{ win.icon }}</span>
+          <span class="taskbar-title">{{ win.title }}</span>
+        </button>
+      </div>
+      <div class="taskbar-clock">
+        <ClientOnly>
+          <DesktopClock />
+        </ClientOnly>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-.screen {
-  background-color: #000000;
-  min-height: 100vh;
+.virtual-desktop {
+  position: fixed;
+  inset: 0;
   overflow: hidden;
-  font-family: 'Press Start 2P', monospace;
-  position: relative;
-  color: #1a9f34;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
-.desktop-ui {
-  background: radial-gradient(#414141, #1a1a1a);
-  padding: 4rem;
-  width: 100%;
-  height: 100vh;
-}
-
-
-.icon {
+.desktop-bg {
   position: absolute;
+  inset: 0;
+  background-color: #2f2f2f;
+  background-image:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(190, 103, 190, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 20% 80%, rgba(100, 60, 140, 0.08) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(190, 103, 190, 0.2);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 80px;
+  padding: 0 12px;
+  gap: 8px;
+  z-index: 9999;
+}
+
+.taskbar-apps {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.taskbar-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  color: #ccc;
+  font-size: 12px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: background 0.15s;
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-
-#iconAbout {
-  top: 22%;
-  left: 35%;
+.taskbar-item:hover {
+  background: rgba(190, 103, 190, 0.2);
+  border-color: rgba(190, 103, 190, 0.4);
+  color: #fff;
 }
 
-#iconProjects {
-  top: 33%;
-  left: 62%;
+.taskbar-item.minimized {
+  opacity: 0.55;
 }
 
-#iconWriteups {
-  top: 53%;
-  left: 40%;
+.taskbar-icon {
+  font-size: 14px;
+  flex-shrink: 0;
 }
 
-.icon:hover {
-  transform: scale(1.05);
+.taskbar-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.icon img {
-  width: 64px;
-  height: 64px;
-  image-rendering: pixelated;
-}
-
-.icon span {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  text-align: center;
-}
-
-/* VHS scanlines + flicker */
-.vhs-overlay {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5) 2px,
-      transparent 1px,
-      transparent 4px
-  );
-  mix-blend-mode: screen;
-  animation: flicker 0.15s infinite;
-}
-
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 0.1;
-  }
-  20%, 22%, 55% {
-    opacity: 0.13;
-  }
-}
-
-.vignette{
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png);
-  @include fill;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  z-index: 10000;
-
+.taskbar-clock {
+  color: #ccc;
+  font-size: 12px;
+  flex-shrink: 0;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.1);
 }
 </style>

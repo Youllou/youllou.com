@@ -1,15 +1,15 @@
 {
   "common": {
-    "language": "Français",
-    "darkMode": "Mode sombre",
-    "lightMode": "Mode clair",
-    "search": "Rechercher",
-    "searchPlaceholder": "Rechercher dans le site...",
-    "backToTop": "Retour en haut",
-    "loading": "Chargement...",
+    "language": "English",
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode",
+    "search": "Search",
+    "searchPlaceholder": "Search the site...",
+    "backToTop": "Back to top",
+    "loading": "Loading...",
     "error": {
-      "title": "Erreur",
-      "message": "Une erreur s'est produite. Veuillez réessayer plus tard."
+      "title": "Error",
+      "message": "An error occurred. Please try again later."
     }
   },
   "home": {
@@ -29,7 +29,7 @@
     },
     "introduction": {
       "title": "Introduction",
-      "content": "My name is Youllou, I'm a computer engineering student passionate about software development, cybersecurity, and emerging technologies.<br>\nCurious by nature, I enjoy exploring a wide range of fields — from mobile and web development to embedded systems and IoT. Whether it's designing intuitive interfaces, automating complex processes, or building complete systems, I approach each project as an opportunity to learn and innovate.<br><br>\nThrough this portfolio, I share the projects that drive me, the competitions that challenge me (especially in cybersecurity), as well as my contributions to both student and personal initiatives.<br>\nI always strive to combine technical rigor with creativity, paying close attention to user experience and solution robustness.<br><br>\nEnjoy your visit — and feel free to reach out if you’d like to collaborate or simply connect!"
+      "content": "My name is Youllou, I'm a computer engineering student passionate about software development, cybersecurity, and emerging technologies.<br>Curious by nature, I enjoy exploring a wide range of fields — from mobile and web development to embedded systems and IoT. Whether it's designing intuitive interfaces, automating complex processes, or building complete systems, I approach each project as an opportunity to learn and innovate.<br><br>Through this portfolio, I share the projects that drive me, the competitions that challenge me (especially in cybersecurity), as well as my contributions to both student and personal initiatives.<br>I always strive to combine technical rigor with creativity, paying close attention to user experience and solution robustness.<br><br>Enjoy your visit — and feel free to reach out if you'd like to collaborate or simply connect!"
     },
     "timeline": {
       "title": "Timeline",
@@ -45,7 +45,7 @@
           "endDate": "2025-03-01",
           "title": "Internship at CFIA",
           "link": "https://github.com/ai-cfia/fertiscan-frontend",
-          "description": "Worked on Fertiscan a web app used to analyze fertilizer labels leveraging AI"
+          "description": "Worked on Fertiscan, a web app used to analyze fertilizer labels leveraging AI."
         },
         {
           "startDate": "2022-09-01",
@@ -57,11 +57,11 @@
           "endDate": "2022-06-01",
           "title": "Internship at L'Observatoire de la Nuit",
           "link": "https://lobservatoiredelanuit.fr/",
-          "description": "Worked on SCAN an interactive webapp used to visualize an array of street lights and lighting strategies on a map."
+          "description": "Worked on SCAN, an interactive webapp used to visualize an array of street lights and lighting strategies on a map."
         },
         {
           "startDate": "2020-09-01",
-          "endDate": "2022-06-31",
+          "endDate": "2022-06-30",
           "title": "DUT in Computer Science",
           "description": "I completed my DUT in Computer Science at the University of Nantes, where I gained a solid foundation in software development and systems design."
         }
@@ -69,11 +69,11 @@
     },
     "projects": {
       "title": "Projects",
-      "description": "Here are some of the projects I have worked on, showcasing my skills in software development, cybersecurity, and more. Each project reflects my passion for technology and my commitment to creating impactful solutions.",
+      "description": "Here are some of the projects I have worked on, showcasing my skills in software development, cybersecurity, and more. Each project reflects my passion for technology and my commitment to creating impactful solutions."
     },
     "contacts": {
       "title": "Contacts",
-      "description": "Feel free to reach out to me via email or connect with me on LinkedIn. I am always open to new opportunities and collaborations.",
+      "description": "Feel free to reach out to me via email or connect with me on LinkedIn. I am always open to new opportunities and collaborations."
     }
   }
 }
