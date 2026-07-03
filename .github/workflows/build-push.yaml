@@ -21,4 +21,4 @@ jobs:
       file: Dockerfile
       branch: main
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GHCR_DEPLOY_TOKEN }}
+      GHCR_DEPLOY_TOKEN: ${{ secrets.GHCR_DEPLOY_TOKEN }}
