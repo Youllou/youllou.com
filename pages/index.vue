@@ -3,6 +3,7 @@ import { useDesktop, type DesktopApp } from '@/composables/useDesktop'
 import PagesAbout from "@/components/PagesWindowWrapper/PagesAbout.vue";
 import PagesProjects from "@/components/PagesWindowWrapper/PagesProjects.vue";
 import PagesWriteups from "@/components/PagesWindowWrapper/PagesWriteups.vue";
+import PagesArgo from "@/components/PagesWindowWrapper/PagesArgo.vue";
 
 const { windows, openWindow } = useDesktop()
 
@@ -25,6 +26,12 @@ const apps: DesktopApp[] = [
     label: 'Writeups',
     icon: '📝',
     component: 'PagesWriteups',
+  },
+  {
+    id: 'argocd',
+    label: 'Argo',
+    icon: '🚀',
+    component: 'PagesArgo',
   },
 ]
 
@@ -57,6 +64,7 @@ function defaultPos(index: number) {
       <PagesAbout     v-if="win.appId === 'about'" />
       <PagesProjects  v-else-if="win.appId === 'projects'" />
       <PagesWriteups  v-else-if="win.appId === 'writeups'" />
+      <PagesArgo      v-else-if="win.appId === 'argocd'" />
       <!-- Add more pages here as you build them -->
     </DesktopWindow>
 
