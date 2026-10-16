@@ -15,7 +15,8 @@
   "home": {
     "about": "About me",
     "projects": "Projects",
-    "writeups": "Writeups"
+    "writeups": "Writeups",
+    "argo": "Deployment"
   },
   "about": {
     "toc": {

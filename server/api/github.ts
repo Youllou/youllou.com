@@ -32,13 +32,14 @@ export default defineEventHandler(async (event) => {
       `,
         }),
     })
-
+    const data = await res.json()
     if (!res.ok) {
         throw createError({
-            statusCode: res.status,
-            statusMessage: 'Failed to fetch GitHub data',
+            status: res.status,
+            data: data,
+            message: 'Failed to fetch GitHub data',
+
         })
     }
-    const data = await res.json()
     return data.data.viewer.pinnedItems.nodes
 })

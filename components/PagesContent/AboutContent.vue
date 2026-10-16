@@ -94,7 +94,7 @@ const { t } = useI18n()
               <p class="ab-project-desc">{{ project.description || '—' }}</p>
               <div class="ab-project-footer">
                 <span class="ab-project-stars">⭐ {{ project.stargazers_count }}</span>
-                <a :href="project.html_url" target="_blank" rel="noopener noreferrer" class="ab-project-link">
+                <a :href="project.url" target="_blank" rel="noopener noreferrer" class="ab-project-link">
                   View →
                 </a>
               </div>

@@ -4,32 +4,33 @@ import PagesAbout from "@/components/PagesWindowWrapper/PagesAbout.vue";
 import PagesProjects from "@/components/PagesWindowWrapper/PagesProjects.vue";
 import PagesWriteups from "@/components/PagesWindowWrapper/PagesWriteups.vue";
 import PagesArgo from "@/components/PagesWindowWrapper/PagesArgo.vue";
-
 const { windows, openWindow } = useDesktop()
+const { t } = useI18n()
+
 
 // ── Define your apps here — add more as needed ───────────────────
 const apps: DesktopApp[] = [
   {
     id: 'about',
-    label: 'About Me',
+    label: t('home.about'),
     icon: '👤',
     component: 'PagesAbout',
   },
   {
     id: 'projects',
-    label: 'Projects',
+    label: t('home.projects'),
     icon: '🗂️',
     component: 'PagesProjects',
   },
   {
     id: 'writeups',
-    label: 'Writeups',
+    label: t('home.writeups'),
     icon: '📝',
     component: 'PagesWriteups',
   },
   {
     id: 'argocd',
-    label: 'Argo',
+    label: t('home.argo'),
     icon: '🚀',
     component: 'PagesArgo',
   },
@@ -65,7 +66,6 @@ function defaultPos(index: number) {
       <PagesProjects  v-else-if="win.appId === 'projects'" />
       <PagesWriteups  v-else-if="win.appId === 'writeups'" />
       <PagesArgo      v-else-if="win.appId === 'argocd'" />
-      <!-- Add more pages here as you build them -->
     </DesktopWindow>
 
     <!-- Taskbar -->
@@ -82,6 +82,7 @@ function defaultPos(index: number) {
           <span class="taskbar-title">{{ win.title }}</span>
         </button>
       </div>
+      <DesktopLanguageSwitcher />
       <div class="taskbar-clock">
         <ClientOnly>
           <DesktopClock />

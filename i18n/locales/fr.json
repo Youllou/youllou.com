@@ -13,9 +13,10 @@
     }
   },
   "home": {
-    "about": "À mon propos",
+    "about": "À propos",
     "projects": "Mes projets",
-    "writeups": "Writeups"
+    "writeups": "Writeups",
+    "argo": "Déploiment"
   },
   "about": {
     "toc": {
