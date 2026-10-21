@@ -4,6 +4,8 @@ import PagesAbout from "@/components/PagesWindowWrapper/PagesAbout.vue";
 import PagesProjects from "@/components/PagesWindowWrapper/PagesProjects.vue";
 import PagesWriteups from "@/components/PagesWindowWrapper/PagesWriteups.vue";
 import PagesArgo from "@/components/PagesWindowWrapper/PagesArgo.vue";
+import PagesTasks from "@/components/PagesWindowWrapper/PagesTasks.vue";
+import PagesSoundBoard from "@/components/PagesWindowWrapper/PagesSoundBoard.vue";
 const { windows, openWindow } = useDesktop()
 const { t } = useI18n()
 
@@ -34,6 +36,18 @@ const apps: DesktopApp[] = [
     icon: '🚀',
     component: 'PagesArgo',
   },
+  {
+    id: 'tasks',
+    label: "tasks_",
+    icon: '/assets/icons/tasks-192x192.png',
+    component: 'PagesTasks',
+  },
+  {
+    id: 'soundboard',
+    label: 'Soundboard',
+    icon: '🎵',
+    component: 'PagesSoundboard',
+  }
 ]
 
 // Default grid positions for icons (column of icons on the left)
@@ -66,6 +80,8 @@ function defaultPos(index: number) {
       <PagesProjects  v-else-if="win.appId === 'projects'" />
       <PagesWriteups  v-else-if="win.appId === 'writeups'" />
       <PagesArgo      v-else-if="win.appId === 'argocd'" />
+      <PagesTasks     v-else-if="win.appId === 'tasks'" />
+      <PagesSoundBoard v-else-if="win.appId === 'soundboard'" />
     </DesktopWindow>
 
     <!-- Taskbar -->
@@ -78,7 +94,8 @@ function defaultPos(index: number) {
             :class="{ minimized: win.minimized }"
             @click="win.minimized = !win.minimized"
         >
-          <span class="taskbar-icon">{{ win.icon }}</span>
+          <img class="taskbar-img" v-if="win.icon.startsWith('/')" :src="win.icon"/>
+          <span v-else class="icon-emoji">{{ win.icon }}</span>
           <span class="taskbar-title">{{ win.title }}</span>
         </button>
       </div>
@@ -131,6 +148,8 @@ function defaultPos(index: number) {
   gap: 4px;
   flex: 1;
   overflow: hidden;
+  height: 100%;
+  padding: 5px 0;
 }
 
 .taskbar-item {
@@ -163,6 +182,9 @@ function defaultPos(index: number) {
 .taskbar-icon {
   font-size: 14px;
   flex-shrink: 0;
+}
+.taskbar-img{
+  height: 100%;
 }
 
 .taskbar-title {

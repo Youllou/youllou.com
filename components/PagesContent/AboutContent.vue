@@ -17,6 +17,12 @@ const {
 } = useAbout()
 
 const { t } = useI18n()
+
+function downloadResume() {
+  if (import.meta.client) {
+    window.print()
+  }
+}
 </script>
 
 <template>
@@ -29,6 +35,14 @@ const { t } = useI18n()
           :items="Object.keys(localeItems)"
           @change="localeValue = $event"
       />
+<!--      <button-->
+<!--          class="ab-download"-->
+<!--          type="button"-->
+<!--          @click="downloadResume"-->
+<!--      >-->
+<!--        <span aria-hidden="true">↓</span>-->
+<!--        {{ t('about.downloadResume') }}-->
+<!--      </button>-->
     </div>
 
     <!-- ── Mobile TOC (page mode only) ───────────────────────── -->
@@ -175,6 +189,31 @@ const { t } = useI18n()
   top: 2rem;
   right: 3rem;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ab-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(190, 103, 190, 0.45);
+  border-radius: 6px;
+  background: rgba(190, 103, 190, 0.12);
+  color: #eeeeee;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ab-download:hover,
+.ab-download:focus-visible {
+  border-color: #be67be;
+  background: rgba(190, 103, 190, 0.25);
+  outline: none;
 }
 
 /* ── Mobile TOC ──────────────────────────────────────────────── */
@@ -432,5 +471,37 @@ h2 {
 .ab-contact-list span {
   text-decoration: underline;
   text-decoration-color: #be67be;
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+  .ab-content {
+    margin: 0 1.6cm;
+    padding-top: 0.5cm;
+  }
+
+
+  .ab-locale,
+  .ab-mobile-toc,
+  .ab-sidebar-toc {
+    display: none !important;
+  }
+
+  .ab-grid,
+  .ab-mode-page .ab-grid {
+    display: block;
+    padding: 0;
+  }
+
+  .ab-intro {
+    grid-template-columns: 2fr 1fr;
+  }
+  .ab-section {
+    page-break-inside: avoid;
+  }
+
+
 }
 </style>

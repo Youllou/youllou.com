@@ -19,6 +19,7 @@
     "argo": "Deployment"
   },
   "about": {
+    "downloadResume": "Download PDF",
     "toc": {
       "title": "Table of Contents",
       "introduction": "Introduction",
@@ -36,10 +37,24 @@
       "title": "Timeline",
       "items": [
         {
+          "startDate": "2025-09-01",
+          "title": "Internal Coordination of ETS Student Association",
+          "link": "https://aeets.com",
+          "description": "First elected as Internal Coordinator assistant and then appointed to the position for the 2026-2027 year. In this role, I am responsible for overseeing internal operations and coordinating student association activities to ensure continuity, organizational efficiency, and the development of student life. I collaborate with ETS administrative teams and student leaders to bring impactful projects to fruition."
+        },
+        {
+          "startDate": "2025-09-01",
+          "endDate": "2026-04-30",
+          "title": "Internship at Carange Solutions",
+          "link": "https://carangesolutions.com/",
+          "description": "Conception and development of a real-time audio transcription and diarization tool to generate meeting minutes. The tool uses AI models to transcribe audio and identify different participants, offering an effective solution for meeting documentation."
+        },
+        {
           "startDate": "2023-05-01",
+          "endDate": "2026-04-30",
           "title": "Member of the executive committee of DCI ETS",
           "link": "https://dciets.com/",
-          "description": "I am currently a member of the executive committee of DCI ETS, first as treasurer then Chief and this year as VP of Partnership. Through this organization, I thrive to promote cybersecurity and digital skills among students. We organize and participate to events, workshops, and competitions."
+          "description": "I was a member of the executive committee of DCI ETS, first as treasurer then Chief and finally as VP of Partnership. Through this organization, I thrived to promote cybersecurity and digital skills among students. DCI organize and participate to events, workshops, and competitions."
         },
         {
           "startDate": "2024-04-01",

@@ -1,12 +1,11 @@
 <script setup lang="ts">
-const { items } = defineProps<{
+const { items, allLeft } = defineProps<{
   allLeft: boolean;
   items: {
     title: string;
     startDate: string;
     endDate?: string;
     description: string;
-    inverted?: boolean;
     link?: string;
   }[];
 }>()
@@ -18,7 +17,7 @@ const { items } = defineProps<{
     <div class="timeline-left">
       <div v-for="(item, index) in items" :key="index" class="timeline-item">
         <TimelineCard
-            v-if="index%2==0 || (index%2==1 && item.inverted) || allLeft"
+            v-if="index%2==0 || allLeft"
             class="timeline-content"
             :title="item.title"
             :startDate="item.startDate"
@@ -34,7 +33,7 @@ const { items } = defineProps<{
     <div class="timeline-right" v-if="!allLeft">
       <div v-for="(item, index) in items" :key="index" class="timeline-item">
         <TimelineCard
-            v-if="index%2==1 || (index%2==0 && item.inverted)"
+            v-if="index%2==1"
             class="timeline-content"
             :title="item.title"
             :startDate="item.startDate"
@@ -75,6 +74,7 @@ const { items } = defineProps<{
 .timeline-right {
   grid-area: right;
   padding-left: 20px;
+  padding-top: 20px;
 }
 
 .timeline-content {
@@ -185,8 +185,14 @@ const { items } = defineProps<{
     grid-template-areas:
       "left line";
   }
-
-
+}
+@media print {
+  .timeline-container {
+    grid-template-columns: 12fr 1fr 12fr;
+    grid-template-areas:
+      "left line right" ;
+    break-inside: avoid;
+  }
 }
 
 

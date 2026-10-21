@@ -16,9 +16,10 @@
     "about": "À propos",
     "projects": "Mes projets",
     "writeups": "Writeups",
-    "argo": "Déploiment"
+    "argo": "Déploiment",
   },
   "about": {
+    "downloadResume": "Télécharger le PDF",
     "toc": {
       "title": "Table des matières",
       "introduction": "Introduction",
@@ -36,10 +37,24 @@
       "title": "Chronologie",
       "items": [
         {
+          "startDate": "2025-09-01",
+          "title": "Coordination interne de l'Association Étudiante de l'ÉTS",
+          "link": "https://aeets.com",
+          "description": "D'abord élue en tant qu'adjoint à la coordination interne puis nominée au poste pour l'année 2026-2027. Au travers de ce rôle je suis chargée de la supervision des opérations internes et de la coordination des instances associatives afin d’assurer la continuité des activités, l’efficacité organisationnelle et le développement de la vie étudiante. Collaborant avec les équipes administratives de l'ÉTS et les responsables étudiants pour concrétiser des projets à fort impact."
+        },
+        {
+          "startDate": "2025-09-01",
+          "endDate": "2026-04-30",
+          "title": "Stage à Carange Solutions",
+          "link": "https://carangesolutions.com/",
+          "description": "Conception et développement d'un outil de transcription et diarisation d'audio en temps réel permettant de générer des procès-verbaux de réunions. L'outil utilise des modèles d'IA pour transcrire l'audio et identifier les différents intervenants, offrant ainsi une solution efficace pour la documentation des réunions."
+        },
+        {
           "startDate": "2023-05-01",
+          "endDate": "2026-04-30",
           "title": "Membre du comité exécutif de la DCI ÉTS",
           "link": "https://dciets.com/",
-          "description": "Je fais actuellement partie du comité exécutif de la DCI ÉTS, d'abord en tant que trésorier, puis Chef, et cette année en tant que VP Partenariats. À travers cette organisation, je m'efforce de promouvoir la cybersécurité et les compétences numériques auprès des étudiants. Nous organisons et participons à des événements, ateliers et compétitions de cybersécurité et d'informatique."
+          "description": "J'ai fait partie du comité exécutif de la DCI ÉTS pendant 3 ans, d'abord en tant que trésorier, puis Chef, et finalement en tant que VP Partenariats. À travers cette organisation, je m'efforçais de promouvoir la cybersécurité et les compétences numériques auprès des étudiants. La DCI organise et participe à des événements, ateliers et compétitions de cybersécurité et d'informatique."
         },
         {
           "startDate": "2024-04-01",
